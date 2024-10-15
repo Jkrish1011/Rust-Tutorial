@@ -1,4 +1,4 @@
-// mod test;
+mod leetcode;
 
 // Two goals: 1. Modify assert! to make it work 2. Make println! output: 97 - 122
 
