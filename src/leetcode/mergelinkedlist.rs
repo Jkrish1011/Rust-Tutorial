@@ -49,31 +49,31 @@ impl Solution {
         let mut rangeNode: ListNode = ListNode::new(0);
         let mut l1_tmp: ListNode = ListNode::new(0);
         let mut l2_tmp: ListNode = ListNode::new(0);
-        let mut l1_flag: bool = false;
-        let mut l2_flag: bool = false;
-        loop {
-            match list1 {
-                Some(l1) => {
-                    l1_flag = true;
-                    l1_tmp = *l1;
-                },
-                None => l1_flag = false
-            }
-            match list2 {
-                Some(l2) => {
-                    l2_flag = true;
-                    l2_tmp = *l2;
-                },
-                None => l2_flag = false
-            }
+        // let mut l1_flag: bool = false;
+        // let mut l2_flag: bool = false;
+        // loop {
+        //     match list1 {
+        //         Some(l1) => {
+        //             l1_flag = true;
+        //             l1_tmp = *l1;
+        //         },
+        //         None => l1_flag = false
+        //     }
+        //     match list2 {
+        //         Some(l2) => {
+        //             l2_flag = true;
+        //             l2_tmp = *l2;
+        //         },
+        //         None => l2_flag = false
+        //     }
             
-            if l1_flag == true && l2_flag == true {
-                if l1.val > l2.val {
+        //     if l1_flag == true && l2_flag == true {
+        //         if l1.val > l2.val {
 
-                }
-            }
-            break;
-        }
+        //         }
+        //     }
+        //     break;
+        // }
         
         return Some(Box::new(headNode));
     }
