@@ -21,6 +21,9 @@ pub struct Solution;
 
 impl Solution {
     pub fn is_palindrome(x: i32) -> bool {
+        if x < 0 {
+            return false;
+        }
         let mut revNumber = 0;
         let mut num = x;
         while num != 0 {
