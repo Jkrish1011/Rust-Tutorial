@@ -44,38 +44,32 @@ impl ListNode {
 }
 
 impl Solution {
-    pub fn merge_two_lists(list1: Option<Box<ListNode>>, list2: Option<Box<ListNode>>) -> Option<Box<ListNode>> {
-        let mut headNode: ListNode = ListNode::new(0);
-        let mut rangeNode: ListNode = ListNode::new(0);
-        let mut l1_tmp: ListNode = ListNode::new(0);
-        let mut l2_tmp: ListNode = ListNode::new(0);
-        // let mut l1_flag: bool = false;
-        // let mut l2_flag: bool = false;
-        // loop {
-        //     match list1 {
-        //         Some(l1) => {
-        //             l1_flag = true;
-        //             l1_tmp = *l1;
-        //         },
-        //         None => l1_flag = false
-        //     }
-        //     match list2 {
-        //         Some(l2) => {
-        //             l2_flag = true;
-        //             l2_tmp = *l2;
-        //         },
-        //         None => l2_flag = false
-        //     }
-            
-        //     if l1_flag == true && l2_flag == true {
-        //         if l1.val > l2.val {
+    pub fn merge_two_lists(mut list1: Option<Box<ListNode>>, mut list2: Option<Box<ListNode>>) -> Option<Box<ListNode>> {
+     let mut dummy: ListNode = ListNode::new(-1);
+     let mut tail: &mut ListNode = &mut ListNode;
 
-        //         }
-        //     }
-        //     break;
-        // }
-        
-        return Some(Box::new(headNode));
+     while list1.is_some() && list2.is_some() {
+      if list1.as_ref().unwrap().val < list2.as_ref().unwrap().val {
+        tail.next = list1.clone();
+        list1 = list1.unwrap().next;
+      } else {
+        tail.next = list2.clone();
+        list2 = list2.unwrap().next;
+      }
+      // tail is a reference, so when we unwrap a mutable, we get a box, which inturn is a reference. so it becomes a mutable reference
+      tail = tail.next.as_mut().unwrap();
+      
+     }
+
+     if list1.is_some() {
+      tail.next = list1;
+    }
+
+    if list2.is_some() {
+      tail.next = list2;
+    }
+
+    dummy.next
     }
 }
 
@@ -85,9 +79,10 @@ mod tests{
 
     #[test]
     fn TestMergeLinkedList() {
-        let mut l1: ListNode = ListNode::new(1);
-        let mut l2: ListNode = ListNode::new(2);
-        let res: Option<Box<ListNode>> = Solution::merge_two_lists(Some(Box::new(l1)), Some(Box::new(l2)));
+        let mut l1: Option<Box<ListNode>> = Some(Box::new(ListNode{val: 1, next: Some(Box::new(ListNode{val: 2, next: None}))}));
+        let mut l2: Option<Box<ListNode>> = Some(Box::new(ListNode{val: 3, next: Some(Box::new(ListNode{val: 4, next: None}))}));
+        
+        let res: Option<Box<ListNode>> = Solution::merge_two_lists(l1, l2);
         println!("{:?}", res);
     }
 }

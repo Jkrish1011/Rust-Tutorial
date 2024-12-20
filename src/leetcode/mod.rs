@@ -1,6 +1,16 @@
 // pub mod mergelinkedlist;
+// pub mod uniquepaths;
+// pub mod jumpgame;
+// pub mod gasstation;
+// pub mod sametree;
+// pub mod watercontainer;
+// pub mod wordbreak;
+// pub mod flowerbed;
+// pub mod continuguoussubarray;
+// pub mod maximumsubarray;
+pub mod needleinhaystack;
 // pub mod two_sum;
 // pub mod linkedlist;
 // pub mod addtwonumbers;
 // pub mod palindrome;
-pub mod removeelement;
+// pub mod removeelement;
